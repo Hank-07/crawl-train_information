@@ -10,15 +10,16 @@
 ## 程式分析
 程式分為三個部分:爬蟲、處理資料、上傳資料庫 
 
-*爬蟲的部分:
+* 爬蟲的部分:
 ```
 url = "https://www.railway.gov.tw/tra-tip-web/tip/tip001/tip112/querybytime"
 response = requests.post(url, data)
 soup = BeautifulSoup(response.text, "html.parser")
 ``` 
 使用post的方式帶著某些資料 (data)，就可以得到資料
-data範例
+  
 ``` 
+data範例:
 data = {
         '_csrf': '3baae0b6-f9b8-4dda-ab63-268d47e0b8d5', 
         'startStation': '2200-大甲', #起始點
@@ -32,7 +33,8 @@ data = {
         'query': '查詢'
     }
 ``` 
-
+找尋資料放在哪個標籤當中  
+這個案例的表格名稱是放在tbody下的表格，查詢資料室放在 class="trip-column" 
 ```
 timeTable = []
 count = []
@@ -51,4 +53,7 @@ for i in result:
         count.append(p.text.replace('\n', ''))
     timeTable.append(count)
 ```
+  
+* 資料處理的部分:
+
 ## 執行方式
