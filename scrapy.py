@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import re
 
 class Scrapy():
     def __init__(self, url, data):

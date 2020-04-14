@@ -19,7 +19,7 @@ if __name__ == '__main__':
         'startStation': '2200-大甲',
         'endStation': '3300-臺中',
         'transfer': 'ONE',
-        'rideDate': '2020/04/12',
+        'rideDate': '2020/04/14',
         'startOrEndTime': 'true',
         'startTime': '00:00',
         'endTime': '23:59',
