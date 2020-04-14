@@ -18,7 +18,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 ``` 
 使用post的方式帶著某些資料 (data)，就可以得到資料
   
-``` 
+```python
 data範例:
 data = {
         '_csrf': '3baae0b6-f9b8-4dda-ab63-268d47e0b8d5', 
@@ -35,7 +35,7 @@ data = {
 ``` 
 找尋資料放在哪個標籤當中  
 這個案例的表格名稱是放在tbody下的表格，查詢資料室放在 class="trip-column" 
-```
+```python
 timeTable = []
 count = []
 # 名稱
@@ -55,5 +55,29 @@ for i in result:
 ```
   
 * 資料處理的部分:
+主要提取的資料有:車種車次、出發時間、抵達時間、行駛時、全票、孩童票  
+將資料打包成json格式
+```python
+# 範例
+{'車種車次':'區間2601'}
+```
 
+* 資料庫的部分:
+使用pymongo連接mongoDB
+```python
+#因為架設在本地，不需要連接伺服器的動作
+client = MongoClient()
+db = client.get_database('Scrapy') #要連接的資料庫名稱
+collection = db.get_collection('Train') #要連接的資料表
+con.insert_many(data_many_dict) #上傳多個資料的指令
+```
 ## 執行方式
+```
+python main.py
+```
+
+## 改進
+
+* 將查詢資料作為參數的部分
+* 可開發轉乘功能
+* 做得詳細點可以作為API使用
