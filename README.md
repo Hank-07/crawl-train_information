@@ -11,7 +11,7 @@
 程式分為三個部分:爬蟲、處理資料、上傳資料庫 
 
 * 爬蟲的部分:
-```
+```python
 url = "https://www.railway.gov.tw/tra-tip-web/tip/tip001/tip112/querybytime"
 response = requests.post(url, data)
 soup = BeautifulSoup(response.text, "html.parser")
